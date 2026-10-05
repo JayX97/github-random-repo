@@ -4,10 +4,18 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>github-random-repo</title>
+    <title>GitHub Random Repo</title>
+    <link href="/src/style.css" rel="stylesheet">
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <h1>GitHub Repository Finder</h1>
+      <select name="languages" id="languages">
+        <option value="">Select a Language</option>
+      </select>
+      <div id="prompt-div"></div>
+      <button>Button</button>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
