@@ -7,14 +7,16 @@
     <title>GitHub Random Repo</title>
     <link href="/src/style.css" rel="stylesheet">
   </head>
-  <body>
-    <div id="app">
-      <h1>GitHub Repository Finder</h1>
-      <select name="languages" id="languages">
+  <body class="flex h-screen justify-center">
+    <div class="flex h-175 max-w-3xl flex-col items-center" id="app">
+      <h1 class="text-4xl text-center font-bold m-9">GitHub Repository Finder</h1>
+      <select name="languages" id="languages" class="mb-5 px-3 py-1.25 border-2 border-black rounded-4xl">
         <option value="">Select a Language</option>
       </select>
-      <div id="prompt-div"></div>
-      <button>Button</button>
+      <div id="prompt-div" class="bg-gray-200 flex w-sm min-h-50 mb-5 p-5 text-center items-center justify-center rounded-2xl">
+        <p id="prompt">Please select a language</p>
+      </div>
+      <button id="refresh" class="text-white bg-black px-6 py-2 rounded-4xl ">Button</button>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
