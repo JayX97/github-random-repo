@@ -1,20 +1,20 @@
 /* ARRAY OF LANGUAGES USED ON GITHUB */
 const langArray = [
-  'Python',
-  'Javascript',
-  'Java',
-  'C#',
-  'C++',
-  'Go',
-  'Rust',
-  'Typescript',
-  'HTML',
-  'CSS',
-  'SQL',
-  'Ruby',
-  'PHP',
-  'Kotlin',
-  'Swift'
+  { language: 'Python', colorCode: '#3572A5' },
+  { language: 'Javascript', colorCode: '#f1e05a' },
+  { language: 'Java', colorCode: '#b07219' },
+  { language: 'C#', colorCode: '#178600' },
+  { language: 'C++', colorCode: '#f34b7d' },
+  { language: 'Go', colorCode: '#375eab' },
+  { language: 'Rust', colorCode: '#dea584' },
+  { language: 'Typescript', colorCode: '#2b7489' },
+  { language: 'HTML', colorCode: '#e44b23' },
+  { language: 'CSS', colorCode: '#563d7c' },
+  { language: 'SQL', colorCode: '#e38c00' },
+  { language: 'Ruby', colorCode: '#701516' },
+  { language: 'PHP', colorCode: '#4F5D95' },
+  { language: 'Kotlin', colorCode: '#A97BFF' },
+  { language: 'Swift', colorCode: '#F05138' }
 ];
 
 /* API BASE URL*/
@@ -30,12 +30,18 @@ const refreshButton = document.getElementById('refresh');
 /* POPULATE DROPDOWN */
 langArray.forEach((lang) => {
   const newOption = document.createElement('option');
-  newOption.value = lang.toLowerCase();
-  newOption.textContent = lang;
+  newOption.value = lang.language.toLowerCase();
+  newOption.textContent = lang.language;
 
   langDropdown.appendChild(newOption);
 });
 
+/* FUNCTION TO GENERATE COLOR CODE FROM LANGUAGE */
+const langColor = (str) => {
+  return langArray.find(lang => lang.language.toLowerCase() === str).colorCode;
+}
+
+/* HANDLE UI STATE WHEN FETCHING DATA */
 const handleState = (state) => {
   switch (state) {
     case 'loading':
@@ -65,21 +71,21 @@ const handleState = (state) => {
       repoDiv.hidden = false;
       refreshButton.hidden = false;
       break;
-    
   }
 }
 
 /* FETCH REPO FUNCTION */
-
 const fetchRepo = async (lang) => {
   const title = document.getElementById('repo-title');
   const description = document.getElementById('repo-description');
+  const logisticsColor = document.getElementById('repo-language-color');
   const language = document.getElementById('repo-language');
   const stars = document.getElementById('repo-stars');
   const forks = document.getElementById('repo-forks');
   const issues = document.getElementById('repo-open-issues');
+  const repoLink = document.getElementById('repo-link');
   
-  const fetchUrl = `${baseUrl}?q=language:${lang}&page=${Math.floor((Math.random() * 1000) + 1)}&per_page=1`; // fetch 1 page from random page
+  const fetchUrl = `${baseUrl}?q=language:${encodeURIComponent(lang)}&page=${Math.floor((Math.random() * 1000) + 1)}&per_page=1`; // fetch 1 page from random page
   handleState('loading');
   
   try {
@@ -94,10 +100,12 @@ const fetchRepo = async (lang) => {
     /* output repo data to repo div */
     title.textContent = repo.name;
     description.textContent = repo.description;
+    logisticsColor.style.backgroundColor = langColor(repo.language.toLowerCase());
     language.textContent = repo.language;
     stars.textContent = repo.stargazers_count;
     forks.textContent = repo.forks_count;
     issues.textContent = repo.open_issues_count;
+    repoLink.href= repo.html_url;
 
     handleState('success');
   } catch (error) {

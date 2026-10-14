@@ -16,17 +16,37 @@
       <div id="prompt-div" class="text-lg bg-gray-200 flex w-sm min-h-50 mb-5 p-5 text-center items-center justify-center rounded-2xl">
         <p id="prompt">Please select a language</p>
       </div>
-      <div id="repo-div" class="w-sm mb-5 p-5 border-2 border-black rounded-2xl" hidden>
-        <h6 id="repo-title" class="text-xl mb-3">Repo Title</h6>
-        <p id="repo-description" class="text-md text-gray-500 mb-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ipsum mollitia cumque error amet dolorem ducimus magni quam. Assumenda sed neque, reiciendis laboriosam distinctio veritatis tempora deserunt sunt accusantium repellat?</p>
-        <div id="repo-info" class="flex text-sm justify-between">
-          <p id="repo-language">Language</p>
-          <p id="repo-stars">0000</p>
-          <p id="repo-forks">0000</p>
-          <p id="repo-open-issues">0000</p>
+      <a href="" id="repo-link" target="_blank">
+        <div id="repo-div" class="w-sm p-5 border-2 border-black rounded-2xl animate-fade-in" hidden>
+          <h6 id="repo-title" class="text-xl mb-3">Repo Title</h6>
+          <p id="repo-description" class="text-md text-gray-500 mb-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ipsum mollitia cumque error amet dolorem ducimus magni quam. Assumenda sed neque, reiciendis laboriosam distinctio veritatis tempora deserunt sunt accusantium repellat?</p>
+          <div id="repo-info" class="flex text-sm justify-between">
+            <span class="flex flex-row gap-1 items-center">
+              <div id="repo-language-color" class="w-2.5 h-2.5 rounded-4xl"></div>
+              <p id="repo-language">Language</p>
+            </span>
+            <span class="text-gray-500 flex flex-row gap-1 items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+              <p id="repo-stars">0</p>
+            </span>
+            <span class="text-gray-500 flex flex-row gap-1 items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+                <path d="M5 3.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm0 2.122a2.25 2.25 0 1 0-1.5 0v.878A2.25 2.25 0 0 0 5.75 8.5h1.5v2.128a2.251 2.251 0 1 0 1.5 0V8.5h1.5A2.25 2.25 0 0 0 12.5 6.25v-.878a2.25 2.25 0 1 0-1.5 0v.878a.75.75 0 0 1-.75.75h-4.5A.75.75 0 0 1 5 6.25v-.878zm3.75 7.378a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm3-8.5a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0z"></path>
+              </svg>
+              <p id="repo-forks">0</p>
+            </span>
+            <span class="text-gray-500 flex flex-row gap-1 items-center">
+              <svg xmlns="http://w3.org" viewBox="0 0 14 16" width="14" height="16" fill="currentColor">
+                <path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+              </svg>
+              <p id="repo-open-issues">0</p>
+            </span>
+          </div>
         </div>
-      </div>
-      <button id="refresh" class="text-white bg-black px-6 py-2 rounded-4xl cursor-pointer" hidden>Refresh</button>
+      </a>
+      <button id="refresh" class="text-white bg-black mt-5 px-6 py-2 rounded-4xl cursor-pointer" hidden>Refresh</button>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
