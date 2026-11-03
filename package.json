@@ -1,14 +1,18 @@
 {
   "name": "github-random-repo",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
+  "homepage": "https://jayx97.github.io/github-random-repo/",
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "vite": "^8.3.0"
   },
   "dependencies": {
